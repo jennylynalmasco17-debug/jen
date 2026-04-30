@@ -1,0 +1,25 @@
+#product-parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-name {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.add-button {
+    border: none;
+    background-color: palevioletred;
+    padding: 16px;
+    border-radius: 6px;
+}
