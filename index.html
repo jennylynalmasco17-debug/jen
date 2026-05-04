@@ -1,15 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Coquette Accessories</title>
-</head>
-<body>
-    <input type=""text" id="search-box" placeholder="Search..." oninput="handleSearch()">
-    <p>Items in cart: <span id="badge">0</span></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coquette Shop</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- Header with Search & Cart Badge -->
+    <header>
+      <div class="logo">🎀 La Coquette Shop</div>
+      <input
+        class="search-box"
+        type="text"
+        id="search-input"
+        placeholder="♡ Search products..."
+      />
+      <div class="cart-header-btn">
+        🛒 Cart <span class="badge" id="cart-badge">0</span>
+      </div>
+    </header>
+
+    <div class="main-container">
+      <!-- Product Listing Section -->
+      <div class="products-section">
+        <div class="section-title">🎀 Our Lovely Collection 🎀</div>
+        <div id="product-parent"></div>
+      </div>
+
+      <!-- Shopping Cart Section -->
+      <div class="cart-section">
+        <div class="cart-title">🎀 Your Shopping Bag 🎀</div>
+        <div id="cart-items">
+          <div class="empty-msg" id="empty-msg">
+            Your bag is empty, darling! 🎀
+          </div>
+        </div>
+        <div class="cart-footer" id="cart-footer" style="display: none">
+          <div class="cart-total-row">
+            <span>Total</span>
+            <span id="cart-total-amount">USD 0.00</span>
+          </div>
+          <button class="clear-btn" id="clear-cart-btn">✧ Clear Bag ✧</button>
+          <button class="checkout-btn" id="checkout-btn">♡ Checkout ♡</button>
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="products.js"></script>
     <script type="module" src="cart.js"></script>
-</body>
+  </body>
 </html>
