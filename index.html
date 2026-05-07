@@ -3,51 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coquette Shop</title>
-    <link rel="stylesheet" href="index.css" />
+    <title>Coquette Shop 🎀</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <!-- Header with Search & Cart Badge -->
     <header>
-      <div class="logo">🎀 La Coquette Shop</div>
-      <input
-        class="search-box"
-        type="text"
-        id="search-input"
-        placeholder="♡ Search products..."
-      />
-      <div class="cart-header-btn">
-        🛒 Cart <span class="badge" id="cart-badge">0</span>
+      <h1 style="font-family: 'Segoe UI';">Coquette Boutique</h1>
+      <div class="search-bar">
+          <input type="text" id="search-input" placeholder="Search..." oninput="handleSearch()">
       </div>
-    </header>
+      <div class="cart-badge">🛒 Items: <span id="cart-quantity">0</span></div>
+  </header>
 
-    <div class="main-container">
-      <!-- Product Listing Section -->
-      <div class="products-section">
-        <div class="section-title">🎀 Our Lovely Collection 🎀</div>
-        <div id="product-parent"></div>
-      </div>
+  <main>
+      <div id="product-parent"></div> 
 
-      <!-- Shopping Cart Section -->
-      <div class="cart-section">
-        <div class="cart-title">🎀 Your Shopping Bag 🎀</div>
-        <div id="cart-items">
-          <div class="empty-msg" id="empty-msg">
-            Your bag is empty, darling! 🎀
+      <hr style="border: 1px dashed #f9d8dd; margin: 40px 0;">
+
+      <section class="cart-section">
+          <h2>Your Bag 🎀</h2>
+          <div id="cart-container"></div>
+          
+          <div class="cart-footer">
+              <h3>Total: $<span id="total-price">0.00</span></h3>
+              <div class="cart-btns">
+                  <button onclick="checkout()">Checkout</button>
+                  <button onclick="clearCart()">Clear Bag</button>
+              </div>
           </div>
-        </div>
-        <div class="cart-footer" id="cart-footer" style="display: none">
-          <div class="cart-total-row">
-            <span>Total</span>
-            <span id="cart-total-amount">USD 0.00</span>
-          </div>
-          <button class="clear-btn" id="clear-cart-btn">✧ Clear Bag ✧</button>
-          <button class="checkout-btn" id="checkout-btn">♡ Checkout ♡</button>
-        </div>
-      </div>
-    </div>
+      </section>
+  </main>
 
-    <script type="module" src="products.js"></script>
-    <script type="module" src="cart.js"></script>
+  <script type="module" src="cart.js"></script>
+  <script type="module" src="products.js"></script>
   </body>
 </html>

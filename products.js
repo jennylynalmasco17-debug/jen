@@ -1,62 +1,38 @@
 import { products } from "./data.js";
-import { addToCart, getCart } from "./cart.js";
+import { cart, renderCart } from "./cart.js";
 
-// Render all products to the page
-export function renderProducts(filteredProducts) {
-  const list = filteredProducts || products;
-  const cart = getCart();
-  let html = "";
+let searchTerm = "";
 
-  list.forEach((product) => {
-    const inCart = cart.find((item) => item.id === product.id);
+window.handleSearch = () => {
+    searchTerm = document.getElementById("search-input").value.toLowerCase(); 
+    window.renderProducts();
+};
 
-    // Determine button state
-    let btnText = "♡ Add to Bag";
-    let btnDisabled = "";
+window.renderProducts = () => {
+    const parent = document.getElementById("product-parent");
+    parent.innerHTML = "";
 
-    if (!product.isAvailable) {
-      btnText = "Not Available";
-      btnDisabled = "disabled";
-    } else if (inCart) {
-      btnText = "✓ Already in Bag";
-      btnDisabled = "disabled";
-    }
+    const filtered = products.filter(p => 
+        p.productName.toLowerCase().includes(searchTerm)
+    );
 
-    html += `
-      <div class="product-container">
-        <span class="ribbon">🎀</span>
-        <div class="product-img">${product.emoji}</div>
-        <p class="product-name">${product.productName}</p>
-        <p class="product-price">${product.currency} ${product.price.toFixed(2)}</p>
-        <p class="product-avail ${product.isAvailable ? "avail-yes" : "avail-no"}">
-          ${product.isAvailable ? "✧ Available" : "✧ Sold Out"}
-        </p>
-        <button class="add-button" data-id="${product.id}" ${btnDisabled}>
-          ${btnText}
-        </button>
-      </div>
-    `;
-  });
-
-  document.getElementById("product-parent").innerHTML = html;
-
-  // Attach click event listeners to all Add to Cart buttons
-  document.querySelectorAll(".add-button").forEach((button) => {
-    button.addEventListener("click", () => {
-      const productId = Number(button.getAttribute("data-id"));
-      addToCart(productId);
+    filtered.forEach((product) => {
+        const isInCart = cart.some(item => item.productName === product.productName);
+        
+        parent.innerHTML += `
+            <div class="product-container">
+                <div style="font-size: 40px;">${product.image}</div>
+                <p class="product-name">${product.productName}</p>
+                <p>$${product.price}</p>
+                <button class="add-button" 
+                    ${!product.isAvailable || isInCart ? 'disabled' : ''} 
+                    onclick='addToCart(${JSON.stringify(product)})'>
+                    ${isInCart ? 'Already in Bag' : 'Add to Bag'}
+                </button>
+            </div>
+        `;
     });
-  });
-}
+};
 
-// Search / Filter functionality
-document.getElementById("search-input").addEventListener("input", () => {
-  const query = document.getElementById("search-input").value.toLowerCase();
-  const filtered = products.filter((p) =>
-    p.productName.toLowerCase().includes(query)
-  );
-  renderProducts(filtered);
-});
-
-// Initial render
-renderProducts();
+window.renderProducts();
+renderCart();
