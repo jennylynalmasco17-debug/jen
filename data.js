@@ -1,29 +1,45 @@
 export const products = [
   { 
-    productName: "Pink Ribbon", 
-    price: 12, 
+    productName: "Satin Hair Bow", 
+    price: 220, currency: "PHP", 
     isAvailable: true, 
     image: "🎀" 
-},
-
-  {
-     productName: "Pearl Necklace", 
-     price: 45, 
-     isAvailable: true, 
-     image: "📿" 
-    },
+  },
 
   { 
-    productName: "Lace Socks", 
-    price: 15, 
+    productName: "Pearl Choker", 
+    price: 240, currency: "USD", 
+    isAvailable: false, 
+    image: "📿"
+  },
+
+  { 
+    productName: "Frilly Lace Socks", 
+    price: 150, currency: "PHP", 
     isAvailable: true, 
     image: "🧦" 
   },
+
   { 
-    productName: "Rose Cup", 
-    price: 20, 
-    isAvailable: false, 
-    image: "☕" 
+    productName: "Scented Peony Candle", 
+    price: 150, currency: "PHP", 
+    isAvailable: true, 
+    image: "🕯️" 
   },
-  
-];
+
+  { 
+    productName: "Silk Ballet Flats", 
+    price: 310, 
+    currency: "PHP", 
+    isAvailable: true, 
+    image: "🩰"
+   },
+
+  { productName: "Vintage Swan Decor", 
+  price: 420, 
+  currency: "PHP", 
+  isAvailable: true, 
+  image: "🦢" 
+},
+
+]; 

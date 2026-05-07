@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coquette Shop 🎀</title>
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
+</head>
+<body>
     <header>
-      <h1 style="font-family: 'Segoe UI';">Coquette Boutique</h1>
-      <div class="search-bar">
-          <input type="text" id="search-input" placeholder="Search..." oninput="handleSearch()">
-      </div>
-      <div class="cart-badge">🛒 Items: <span id="cart-quantity">0</span></div>
-  </header>
+        <h1>Coquette Boutique</h1>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search products...">
+        </div>
+        <div class="cart-badge">🛒 Items: <span id="cart-quantity">0</span></div>
+    </header>
 
-  <main>
-      <div id="product-parent"></div> 
+    <main>
+        <div id="product-parent"></div> 
 
-      <hr style="border: 1px dashed #f9d8dd; margin: 40px 0;">
+        <hr style="border: 1px dashed #f9d8dd; margin: 40px 0;">
+        
+        <section class="cart-section">
+            <h2>Your Bag 🎀</h2>
+            <div id="cart-container"></div>
+            
+            <div class="cart-footer">
+                <h3>Total: $<span id="total-price">0.00</span></h3>
+                <div class="cart-btns">
+                    <button id="checkout-btn">Checkout</button>
+                    <button id="clear-btn">Clear Bag</button>
+                </div>
+            </div>
+        </section>
+    </main>
 
-      <section class="cart-section">
-          <h2>Your Bag 🎀</h2>
-          <div id="cart-container"></div>
-          
-          <div class="cart-footer">
-              <h3>Total: $<span id="total-price">0.00</span></h3>
-              <div class="cart-btns">
-                  <button onclick="checkout()">Checkout</button>
-                  <button onclick="clearCart()">Clear Bag</button>
-              </div>
-          </div>
-      </section>
-  </main>
-
-  <script type="module" src="cart.js"></script>
-  <script type="module" src="products.js"></script>
-  </body>
+    <script type="module" src="cart.js"></script>
+    <script type="module" src="products.js"></script>
+</body>
 </html>
